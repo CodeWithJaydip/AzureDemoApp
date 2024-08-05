@@ -4,6 +4,12 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationInsightsResourceId>/subscriptions/5eae2235-04c5-4525-87b2-2d10886f41ba/resourceGroups/demo-rg/providers/microsoft.insights/components/AzureDemoAoo</ApplicationInsightsResourceId>
+    <UserSecretsId>c77038f3-f18c-477d-ac39-3897f328afc8</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
+  </ItemGroup>
 
 </Project>

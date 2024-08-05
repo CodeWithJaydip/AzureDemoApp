@@ -7,14 +7,17 @@ namespace AzureDemoApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IConfiguration configuration;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            this.configuration = configuration;
         }
 
         public IActionResult Index()
         {
+            ViewData["Greeting"] = configuration["Greeting"];
             return View();
         }
 
