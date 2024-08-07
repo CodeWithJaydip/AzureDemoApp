@@ -1,3 +1,7 @@
+using AzureDemoApp.Data;
+using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+
 namespace AzureDemoApp
 {
     public class Program
@@ -8,6 +12,9 @@ namespace AzureDemoApp
 
             builder.Services.AddApplicationInsightsTelemetry();
             // Add services to the container.
+
+           var connection = builder.Configuration.GetConnectionString("Azure_SQL_CONNECTIONSTRING");
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connection));
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
